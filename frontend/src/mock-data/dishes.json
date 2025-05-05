@@ -1,0 +1,62 @@
+[
+  {
+    "id": "dish-1",
+    "name": "Борщ",
+    "description": "Классический украинский борщ с говядиной и сметаной",
+    "price": 250,
+    "rating": 4.8,
+    "category": "Супы",
+    "cuisine": "Украинская",
+    "image": "/assets/images/borscht.jpg",
+    "chefId": "chef-1",
+    "popularity": 15
+  },
+  {
+    "id": "dish-2",
+    "name": "Пельмени",
+    "description": "Домашние пельмени со свининой и говядиной",
+    "price": 300,
+    "rating": 4.6,
+    "category": "Основное",
+    "cuisine": "Русская",
+    "image": "/assets/images/pelmeni.jpg",
+    "chefId": "chef-2",
+    "popularity": 12
+  },
+  {
+    "id": "dish-3",
+    "name": "Чизкейк",
+    "description": "Нежный чизкейк с клубничным соусом",
+    "price": 200,
+    "rating": 4.9,
+    "category": "Десерты",
+    "cuisine": "Американская",
+    "image": "/assets/images/cheesecake.jpg",
+    "chefId": "chef-3",
+    "popularity": 18
+  },
+  {
+    "id": "dish-4",
+    "name": "Лагман",
+    "description": "Пряное блюдо с лапшой, овощами и мясом",
+    "price": 320,
+    "rating": 4.7,
+    "category": "Основное",
+    "cuisine": "Узбекская",
+    "image": "/assets/images/lagman.jpg",
+    "chefId": "chef-1",
+    "popularity": 14
+  },
+  {
+    "id": "dish-5",
+    "name": "Шакшука",
+    "description": "Яйца, тушёные в томатном соусе с болгарским перцем и специями",
+    "price": 270,
+    "rating": 4.5,
+    "category": "Завтраки",
+    "cuisine": "Средиземноморская",
+    "image": "/assets/images/shakshuka.jpg",
+    "chefId": "chef-2",
+    "popularity": 11
+  }
+]

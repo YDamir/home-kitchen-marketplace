@@ -1,12 +1,8 @@
 import React from 'react';
+import DishesCatalog from '../../../components/ui/DishesCatalog/DishesCatalog';
 
-const Menu: React.FC = () => {
-  return (
-    <div>
-      <h1>Menu Page</h1>
-      <p>Browse through our delicious menu options.</p>
-    </div>
-  );
+const MenuPage: React.FC = () => {
+  return <DishesCatalog />;
 };
 
-export default Menu;
+export default MenuPage;

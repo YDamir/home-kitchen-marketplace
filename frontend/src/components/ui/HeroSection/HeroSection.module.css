@@ -1,25 +1,30 @@
+/* Main Section */
 .hero {
   background: linear-gradient(180deg, #f0fbff, #e0f7fa);
   padding: 60px 0;
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Content */
 .content {
   flex: 1;
+  max-width: 500px;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 36px;
   color: #333;
+  margin-bottom: 20px;
 }
 
 .highlight {
@@ -27,32 +32,54 @@ h2 {
   font-weight: bold;
 }
 
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
 .buttons {
   display: flex;
   gap: 20px;
-  margin-top: 20px;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .btnPrimary {
-  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  background-color: #0051ff;
+  transform: scale(1.05);
 }
 
 .btnSecondary {
-  padding: 10px 20px;
   background-color: transparent;
   color: #00aaff;
   border: 2px solid #00aaff;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
+.btnSecondary:hover {
+  background-color: rgba(68, 118, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* Image */
 .image {
-  width: 400px;
+  width: 50%;
+  max-width: 500px;
   height: auto;
-  margin-left: 20px;
+  object-fit: cover;
+  margin-left: 40px;
 }

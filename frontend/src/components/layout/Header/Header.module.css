@@ -1,4 +1,4 @@
-.header {
+header {
   padding: 20px 0;
   background: #f0fbff;
 }
@@ -12,10 +12,21 @@
   padding: 0 1rem;
 }
 
+/* src/components/layout/Header/Header.module.css */
+
+/* src/components/layout/Header/Header.module.css */
+
 .logo {
   font-size: 24px;
   font-weight: bold;
   color: #007bff;
+  text-decoration: none; /* Убираем подчеркивание */
+  cursor: pointer; /* Показываем курсор "рука" */
+  transition: transform 0.3s ease; /* Плавный переход для масштабирования */
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Легкое увеличение при наведении */
 }
 
 .logo span {
@@ -31,15 +42,22 @@
 
 .nav a {
   text-decoration: none;
-  color: #333;
+  color: #333; /* Цвет неактивной ссылки */
   font-size: 16px;
   position: relative;
   padding-bottom: 5px;
+  transition: color 0.3s ease, transform 0.3s ease; /* Плавный переход */
+}
+
+.nav a:hover {
+  transform: scale(1.02); /* Легкое увеличение при наведении */
+  color: #00aaff; /* Изменение цвета текста */
 }
 
 .nav a.active {
   color: #00aaff;
   font-weight: bold;
+  transform: scale(1.05); /* Небольшое увеличение */
 }
 
 .nav a.active::after {
@@ -51,6 +69,21 @@
   height: 2px;
   background-color: #00aaff;
   border-radius: 1px;
+  animation: underline 0.3s ease-in-out; /* Анимация подчеркивания */
+}
+
+.nav a:visited {
+  color: #333; /* Цвет для посещенных ссылок (такой же, как неактивные) */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+@keyframes underline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .loginBtn {

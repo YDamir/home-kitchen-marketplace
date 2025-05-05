@@ -1,24 +1,87 @@
 .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding: 1rem;
-    width: 200px;
-  }
-  
-  .image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  .card h3 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #333;
-  }
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: block;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 20px;
+  color: #007bff;
+  margin: 0 0 6px;
+}
+
+.price {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.chef {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.rating {
+  margin: 8px 0;
+  font-size: 18px;
+  color: #ffaa00;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.orderBtn,
+.detailsBtn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease-in-out;
+}
+
+.orderBtn {
+  background-color: #29a3a3;
+  color: #fff;
+}
+
+.orderBtn:hover {
+  background-color: #248f8f;
+}
+
+.detailsBtn {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.detailsBtn:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}

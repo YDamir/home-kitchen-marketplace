@@ -1,7 +1,10 @@
-.statistics {
-  background: #ffffff;
-  padding: 40px 0;
-  text-align: center;
+/* Общие стили */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -9,26 +12,82 @@
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Разрешаем перенос элементов */
+  gap: 20px; /* Расстояние между элементами */
+  justify-content: space-around; /* Равномерное распределение */
 }
 
-.statItem {
+/* Секция Statistics */
+.statistics {
+  background: linear-gradient(180deg, #e0f7fa, #f8f9fa);
+  padding: 40px 0;
   text-align: center;
 }
 
-.statIcon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
+.stat-item {
+  display: flex;
+  flex-direction: column; /* Элементы в столбик */
+  align-items: center; /* Центрируем содержимое */
+  text-align: center;
+  width: 100%; /* Для маленьких экранов */
+  max-width: 150px; /* Ограничение ширины */
 }
 
-.statNumber {
-  font-size: 1.5rem;
-  color: #007bff;
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain; /* Корректное масштабирование изображений */
+  margin-bottom: 10px; /* Отступ между иконкой и текстом */
+}
+
+.stat-number {
+  font-size: 24px;
+  color: #00aaff;
   font-weight: bold;
+  margin: 0;
 }
 
-p {
-  font-size: 1rem;
+.stat-description {
+  font-size: 16px;
   color: #555;
+  margin: 5px 0 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .stat-item {
+    max-width: 120px; /* Уменьшаем максимальную ширину для планшетов */
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .stat-number {
+    font-size: 20px; /* Уменьшаем размер текста */
+  }
+
+  .stat-description {
+    font-size: 14px; /* Уменьшаем размер описания */
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-item {
+    max-width: 100%; /* Занимаем всю ширину на маленьких экранах */
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-number {
+    font-size: 18px; /* Еще меньше текст */
+  }
+
+  .stat-description {
+    font-size: 12px; /* Еще меньше описание */
+  }
 }

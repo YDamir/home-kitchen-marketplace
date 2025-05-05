@@ -1,32 +1,131 @@
+/* Главная секция */
 .packagePlans {
-  padding: 40px 0;
+  background: linear-gradient(180deg, #f8f9fa, #ffffff);
+  padding: 50px 0;
   text-align: center;
+  display: flex; /* Центрирование содержимого */
+  flex-direction: column; /* Элементы размещаются по вертикали */
+  align-items: center; /* Горизонтальное центрирование */
 }
 
+.packagePlans h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.packagePlans p {
+  font-size: 16px;
+  color: #777;
+  margin: 10px 0;
+  max-width: 600px; /* Ограничение ширины текста */
+}
+
+/* Контейнер для карточек */
 .planCards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивные колонки */
+  gap: 50px; /* Расстояние между карточками */
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  justify-content: center; /* Центрирование карточек */
 }
 
+/* Ограничение на максимальное количество колонок */
+@media (min-width: 1200px) {
+  .planCards {
+    grid-template-columns: repeat(5, 1fr); /* Максимум 5 колонок */
+  }
+}
+
+/* Стиль для карточки */
 .planCard {
-  background: #ffffff;
+  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  width: 100%; /* Занимает всю доступную ширину */
+  max-width: 200px; /* Максимальная ширина карточки */
+  margin: 0 auto; /* Центрирование карточки */
+  cursor: pointer; /* Показывает, что карточку можно кликнуть */
+}
+
+.planCard:hover {
+  transform: translateY(-5px); /* Легкий эффект "поднятия" */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличенная тень */
 }
 
 .planCard.highlighted {
-  border: 2px solid #00aaff;
+  box-shadow: 0 4px 15px rgba(255, 223, 0, 0.8); /* Яркая тень */
+  border: 2px solid #ffdf00; /* Желтая граница */
+}
+
+.planCard h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.planCard .price {
+  font-size: 24px;
+  color: #00aaff; /* Выделение цветом */
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.planCard .description {
+  font-size: 14px;
+  color: #777;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .cardActions {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: center; /* Кнопки по центру */
+  align-items: center; /* Вертикальное выравнивание */
+  gap: 10px; /* Расстояние между кнопками */
+  margin-top: 15px;
+}
+
+.cardActions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnEdit {
+  background-color: #29a3a3;
+  color: #fff;
+}
+
+.btnEdit:hover {
+  background-color: #248f8f; /* Слегка затемненный цвет */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.btnDelete {
+  background-color: transparent;
+  border: 2px solid #ff4444; /* Красная граница */
+  color: #ff4444;
+}
+
+.btnDelete:hover {
+  background-color: rgba(255, 68, 68, 0.1); /* Полупрозрачный фон */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.addPlan {
+  margin-top: 30px;
+  text-align: center; /* Кнопка добавления плана по центру */
 }
 
 .btnAdd {
@@ -36,4 +135,22 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnAdd:hover {
+  background-color: #0056b3; /* Темно-синий цвет при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .planCards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Уменьшение минимальной ширины */
+  }
+
+  .planCard {
+    max-width: 150px; /* Уменьшение максимальной ширины карточки */
+  }
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Анна Иванова",
+    "city": "Москва",
+    "experience": 5,
+    "specialties": ["Супы", "Салаты"],
+    "rating": 4.8,
+    "imageUrl": "/assets/images/chef-anna.jpg",
+    "popularity": 10
+  },
+  {
+    "id": 2,
+    "name": "Петр Смирнов",
+    "city": "Санкт-Петербург",
+    "experience": 7,
+    "specialties": ["Горячее", "Мангал"],
+    "rating": 4.6,
+    "imageUrl": "/assets/images/chef-petr.jpg",
+    "popularity": 8
+  },
+  {
+    "id": 3,
+    "name": "Елена Кузнецова",
+    "city": "Казань",
+    "experience": 3,
+    "specialties": ["Десерты", "Выпечка"],
+    "rating": 4.9,
+    "imageUrl": "/assets/images/chef-elena.jpg",
+    "popularity": 9
+  }
+]

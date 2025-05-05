@@ -1,0 +1,52 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .info {
+    flex: 1;
+  }
+  
+  .name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .specialty {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.25rem 0;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+    color: #444;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 0.5rem;
+  }
+  

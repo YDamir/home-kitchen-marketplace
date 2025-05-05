@@ -1,0 +1,42 @@
+.sortPanel {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Увеличен зазор для улучшения визуального восприятия */
+  justify-content: center;
+  padding: 20px 0;
+  background: #fefefe;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px; /* Добавлен отступ снизу для разделения с содержимым */
+}
+
+.sortPanel label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.sortPanel select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px; /* Установлено фиксированное значение для ширины */
+  box-sizing: border-box;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+  .sortPanel {
+    flex-direction: column; /* Размещение элементов вертикально */
+    align-items: stretch; /* Элементы растягиваются на всю ширину */
+  }
+
+  .sortPanel select {
+    width: 100%; /* Растягиваем выпадающий список на всю ширину */
+  }
+
+  .sortPanel label {
+    margin-bottom: 8px; /* Добавляем отступ между меткой и селектом */
+  }
+}

@@ -1,0 +1,1378 @@
+frontend/public/... - много картинок
+frontend/src/assets/icons/... - много картинок
+frontend/src/assets/styles/global.css:
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #e0f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+frontend/src/assets/styles/normalize.css - большой файл для единой стилизации на всех браузерах
+frontend/src/assets/styles/tailwind.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+frontend/src/components/common/Button.tsx:
+import React from 'react';
+
+type ButtonProps = {
+  label: string;
+  onClick: () => void;
+};
+
+const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
+  return (
+    <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onClick={onClick}>
+      {label}
+    </button>
+  );
+};
+
+export default Button;
+frontend/src/components/common/Input.tsx:
+import React from 'react';
+
+type InputProps = {
+  type: string;
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+};
+
+const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
+  };
+
+  return (
+    <input
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={handleChange}
+      className="border border-gray-300 rounded px-3 py-2 w-full"
+    />
+  );
+};
+
+export default Input;
+frontend/src/components/common/Modal.tsx:
+import React from 'react';
+
+type ModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+};
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        {children}
+        <button
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          onClick={onClose}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
+frontend/src/components/common/Spinner.tsx:
+import React from 'react';
+
+const Spinner: React.FC = () => {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
+    </div>
+  );
+};
+
+export default Spinner;
+frontend/src/components/layout/Footer/Footer.module.css:
+.footer {
+  background: linear-gradient(180deg, #ffffff, #e0f7fa);
+  color: #333;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.footerNav {
+  display: flex;
+  gap: 15px;
+}
+
+.navLink {
+  color: #333;
+  text-decoration: none;
+  margin: 0;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.socialIcon img:hover {
+  transform: scale(1.2);
+}
+frontend/src/components/layout/Footer/Footer.tsx:
+import React from 'react';
+import styles from './Footer.module.css';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        {/* Copyright */}
+        <p className={styles.copyright}>&copy; 2024 YumaNow+. All Rights Reserved.</p>
+
+        {/* Navigation Links */}
+        <nav className={styles.footerNav}>
+          <a href="#" className={styles.navLink}>Privacy Policy</a> | 
+          <a href="#" className={styles.navLink}>Terms of Service</a> | 
+          <a href="#" className={styles.navLink}>Contact</a>
+        </nav>
+
+        {/* Social Icons */}
+        <div className={styles.socialIcons}>
+          <a href="#" className={styles.socialIcon}>
+            <img src="/images/VK Logo.png" alt="VK" />
+          </a>
+          <a href="#" className={styles.socialIcon}>
+            <img src="/images/mail_icon_130883.png" alt="Mailru" />
+          </a>
+          <a href="#" className={styles.socialIcon}>
+            <img src="/images/telegram.png" alt="Tg" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+frontend/src/components/layout/Footer/index.ts:
+export { default } from './Footer';
+frontend/src/components/layout/Header/Header.module.css:
+header {
+  padding: 20px 0;
+  background: #f0fbff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.logo span {
+  color: #00aaff;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav a.active {
+  color: #00aaff;
+  font-weight: bold;
+}
+
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #00aaff;
+  border-radius: 1px;
+}
+
+.loginBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+frontend/src/components/layout/Header/Header.tsx:
+import React from 'react';
+import styles from './Header.module.css';
+
+const Header: React.FC = () => {
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <h1 className={styles.logo}>YumaNow<span>+</span></h1>
+        <nav className={styles.nav}>
+          <a href="#" className={styles.active}>Home</a>
+          <a href="#">About Us</a>
+          <a href="#">Orders</a>
+          <a href="#">Blogs</a>
+          <a href="#">Contact Us</a>
+        </nav>
+        <button className={styles.loginBtn}>Login</button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+frontend/src/components/layout/Header/index.ts:
+export { default } from './Header';
+frontend/src/components/layout/Layout.tsx:
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+};
+
+export default Layout;
+frontend/src/components/pages/AdminPanel/AdminPanel.module.css - пустой файл
+frontend/src/components/pages/AdminPanel/AdminPanel.tsx:
+import React from 'react';
+
+const AdminPanel: React.FC = () => {
+  return (
+    <div>
+      <h1>Admin Panel</h1>
+      <p>Manage users, dishes, and orders from this dashboard.</p>
+    </div>
+  );
+};
+
+export default AdminPanel;
+frontend/src/components/pages/AdminPanel.ts:
+export { default } from './AdminPanel';
+frontend/src/components/pages/Cart/Cart.module.css - пустой файл
+frontend/src/components/pages/Cart/Cart.tsx:
+import React from 'react';
+
+const Cart: React.FC = () => {
+  return (
+    <div>
+      <h1>Cart Page</h1>
+      <p>Review your selected items and proceed to checkout.</p>
+    </div>
+  );
+};
+
+export default Cart;
+frontend/src/components/pages/Cart/index.ts:
+export { default } from './Cart';
+frontend/src/components/pages/Home/Home.module.css:
+.home {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .home h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+  }
+  
+  .home p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+frontend/src/components/pages/Home/Home.tsx:
+import React from 'react';
+import styles from './Home.module.css';
+
+const Home: React.FC = () => {
+  return (
+    <div className={styles.home}>
+      <h1>Welcome to Home Kitchen Marketplace</h1>
+      <p>Order delicious homemade meals from local chefs!</p>
+    </div>
+  );
+};
+
+export default Home;
+frontend/src/components/pages/Home/index.ts:
+export { default } from './Home';
+frontend/src/components/pages/Login/index.ts:
+export { default } from './Login';
+frontend/src/components/pages/Login/Login.module.css:
+.login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .login h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+frontend/src/components/pages/Login/Login.tsx:
+import React, { useState } from 'react';
+import Input from '../../common/Input';
+import Button from '../../common/Button';
+import styles from './Login.module.css';
+
+const Login: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Login:', { email, password });
+  };
+
+  return (
+    <div className={styles.login}>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <Input type="email" placeholder="Email" value={email} onChange={setEmail} />
+        <Input type="password" placeholder="Password" value={password} onChange={setPassword} />
+        <Button label="Login" onClick={() => {}} />
+      </form>
+    </div>
+  );
+};
+
+export default Login;
+frontend/src/components/pages/Menu/index.ts:
+export { default } from './Menu';
+frontend/src/components/pages/Menu/Menu.module.css - пустой файл
+frontend/src/components/pages/Menu/Menu.tsx:
+import React from 'react';
+
+const Menu: React.FC = () => {
+  return (
+    <div>
+      <h1>Menu Page</h1>
+      <p>Browse through our delicious menu options.</p>
+    </div>
+  );
+};
+
+export default Menu;
+frontend/src/components/pages/Profile/index.ts:
+export { default } from './Profile';
+frontend/src/components/pages/Profile.module.css - пустой файл
+frontend/src/components/pages/Profile.tsx:
+import React from 'react';
+
+const Profile: React.FC = () => {
+  return (
+    <div>
+      <h1>Profile Page</h1>
+      <p>View and update your profile information here.</p>
+    </div>
+  );
+};
+
+export default Profile;
+frontend/src/components/pages/Register/index.ts:
+export { default } from './Register';
+frontend/src/components/pages/Register.module.css - пустой файл
+frontend/src/components/pages/Register.tsx:
+import React from 'react';
+
+const Register: React.FC = () => {
+  return (
+    <div>
+      <h1>Register Page</h1>
+      <p>Please fill out the form to create an account.</p>
+    </div>
+  );
+};
+
+export default Register;
+frontend/src/components/ui/AddPLanModal/AddPLanModal.module.css - пустой файл
+frontend/src/components/ui/AddPLanModal/AddPlanModal.tsx - пустой файл
+frontend/src/components/ui/AddPLanModal/index.ts - пустой файл
+frontend/src/components/ui/DishCard/DishCard.module.css:
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+    width: 200px;
+  }
+  
+  .image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #333;
+  }
+frontend/src/components/ui/DishCard/Dishcard.tsx:
+import React from 'react';
+import styles from './DishCard.module.css';
+
+type DishCardProps = {
+  name: string;
+  price: number;
+  imageUrl: string;
+};
+
+const DishCard: React.FC<DishCardProps> = ({ name, price, imageUrl }) => {
+  return (
+    <div className={styles.card}>
+      <img src={imageUrl} alt={name} className={styles.image} />
+      <h3>{name}</h3>
+      <p>${price.toFixed(2)}</p>
+    </div>
+  );
+};
+
+export default DishCard;
+frontend/src/components/ui/DishCard/index.ts - пустой файл
+frontend/src/components/ui/FilterBar/FilterBard.tsx - пустой файл
+frontend/src/components/ui/FilterBar/FilterBard.module.css - пустой файл
+frontend/src/components/ui/FilterBar/index.ts - пустой файл
+frontend/src/components/ui/HeroSection/HeroSection.module.css:
+/* Main Section */
+.hero {
+  background: linear-gradient(180deg, #f0fbff, #e0f7fa);
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  max-width: 500px;
+}
+
+h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #00aaff;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btnPrimary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btnPrimary:hover {
+  background-color: #0051ff;
+  transform: scale(1.05);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: #00aaff;
+  border: 2px solid #00aaff;
+}
+
+.btnSecondary:hover {
+  background-color: rgba(68, 118, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* Image */
+.image {
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  margin-left: 40px;
+}
+frontend/src/components/ui/HeroSection/HeroSection.tsx:
+import React from 'react';
+import styles from './HeroSection.module.css';
+
+const HeroSection: React.FC = () => {
+  return (
+    <section className={styles.hero}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <h2>
+            Delicious Meals Delivered<br />
+            <span className={styles.highlight}>The Easy Way</span>
+          </h2>
+          <p>
+            Enjoy fresh, tasty dishes brought straight to your door. Convenient,
+            fast, and always satisfying — your favorite meals are just a click away!
+          </p>
+          <div className={styles.buttons}>
+            <button className={styles.btnPrimary}>Order Now</button>
+            <button className={styles.btnSecondary}>Explore Menu</button>
+          </div>
+        </div>
+        <img src="/images/hero.png" alt="Hero Image" className={styles.image} />
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
+frontend/src/components/ui/HeroSection/index.ts:
+export { default } from './HeroSection';
+frontend/src/components/ui/Modal/Modal.tsx:
+import React, { useState } from 'react';
+
+interface ModalProps {
+  onClose: () => void;
+  onSubmit: (data: { title: string; price: string; description: string }) => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ onClose, onSubmit }) => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+
+  const handleSubmit = () => {
+    if (!title || !description) {
+      alert('All fields must be filled out!');
+      return;
+    }
+    onSubmit({ title, price: price || `$${Math.floor(Math.random() * 1000) + 1}`, description });
+    onClose();
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <h2>Update Plan</h2>
+        <form className="modal-form">
+          <label htmlFor="title">Title:</label>
+          <input type="text" id="title" value={title} onChange={e => setTitle(e.target.value)} required />
+          <label htmlFor="price">Price:</label>
+          <span id="price-display" className="price-value">{price}</span>
+          <label htmlFor="description">Description:</label>
+          <textarea id="description" value={description} onChange={e => setDescription(e.target.value)} required />
+          <div className="modal-buttons">
+            <button type="button" className="btn-ok" onClick={handleSubmit}>OK</button>
+            <button type="button" className="btn-cancel" onClick={onClose}>Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
+frontend/src/components/ui/PackagePlans/PackagePlans.tsx:
+import React, { useState } from 'react';
+import styles from './PackagePlans.module.css';
+
+// Тип для плана
+interface Plan {
+  id: string; // Уникальный идентификатор для каждой карточки
+  title: string;
+  price: string;
+  description: string;
+  highlighted?: boolean; // Опциональное свойство
+}
+
+// Массив данных
+const plans: Plan[] = [
+  { id: '1', title: 'Starter Plan', price: '$9.99/week', description: 'Ideal for light eaters' },
+  { id: '2', title: 'Family Plan', price: '$19.99/week', description: 'Perfect for families' },
+  { id: '3', title: 'Gourmet Plan', price: '$29.99/week', description: 'For fine dining lovers' },
+  { id: '4', title: 'Gourmet Plan', price: '$29.99/week', description: 'For fine dining lovers' },
+  { id: '5', title: 'Gourmet Plan', price: '$29.99/week', description: 'For fine dining lovers' },
+  { id: '6', title: 'Gourmet Plan', price: '$29.99/week', description: 'For fine dining lovers' },
+  { id: '7', title: 'Gourmet Plan', price: '$29.99/week', description: 'For fine dining lovers' },
+  { id: '8', title: 'Gourmet Plan', price: '$29.99/week', description: 'For fine dining lovers' },
+];
+
+const PackagePlans: React.FC = () => {
+  // Состояние для отслеживания подсвеченных карточек
+  const [highlightedIds, setHighlightedIds] = useState<string[]>([]);
+
+  // Функция для переключения подсветки
+  const toggleHighlight = (id: string) => {
+    setHighlightedIds((prev) =>
+      prev.includes(id)
+        ? prev.filter((itemId) => itemId !== id) // Убираем ID из массива
+        : [...prev, id] // Добавляем ID в массив
+    );
+  };
+
+  return (
+    <section className={styles.packagePlans}>
+      {/* Заголовок секции */}
+      <h2>Meal Plans</h2>
+      {/* Описание секции */}
+      <p>Choose the perfect plan that fits your lifestyle and taste buds!</p>
+      {/* Контейнер для карточек */}
+      <div className={styles.planCards}>
+        {plans.map((plan) => (
+          <div
+            key={plan.id}
+            className={`${styles.planCard} ${
+              highlightedIds.includes(plan.id) ? styles.highlighted : ''
+            }`}
+            onClick={() => toggleHighlight(plan.id)} // Переключение подсветки при клике
+          >
+            {/* Название плана */}
+            <h3>{plan.title}</h3>
+            {/* Цена */}
+            <p className={styles.price}>{plan.price}</p>
+            {/* Описание */}
+            <span className={styles.description}>{plan.description}</span>
+            {/* Кнопки действий */}
+            <div className={styles.cardActions}>
+              <button className={styles.btnEdit}>Edit</button>
+              <button className={styles.btnDelete}>Delete</button>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Кнопка добавления нового плана */}
+      <div className={styles.addPlan}>
+        <button className={styles.btnAdd}>Add Plan</button>
+      </div>
+    </section>
+  );
+};
+
+export default PackagePlans;
+frontend/src/components/ui/PackagePlans.module.css:
+/* Главная секция */
+.packagePlans {
+  background: linear-gradient(180deg, #f8f9fa, #ffffff);
+  padding: 50px 0;
+  text-align: center;
+  display: flex; /* Центрирование содержимого */
+  flex-direction: column; /* Элементы размещаются по вертикали */
+  align-items: center; /* Горизонтальное центрирование */
+}
+
+.packagePlans h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.packagePlans p {
+  font-size: 16px;
+  color: #777;
+  margin: 10px 0;
+  max-width: 600px; /* Ограничение ширины текста */
+}
+
+/* Контейнер для карточек */
+.planCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивные колонки */
+  gap: 50px; /* Расстояние между карточками */
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  justify-content: center; /* Центрирование карточек */
+}
+
+/* Ограничение на максимальное количество колонок */
+@media (min-width: 1200px) {
+  .planCards {
+    grid-template-columns: repeat(5, 1fr); /* Максимум 5 колонок */
+  }
+}
+
+/* Стиль для карточки */
+.planCard {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  width: 100%; /* Занимает всю доступную ширину */
+  max-width: 200px; /* Максимальная ширина карточки */
+  margin: 0 auto; /* Центрирование карточки */
+  cursor: pointer; /* Показывает, что карточку можно кликнуть */
+}
+
+.planCard:hover {
+  transform: translateY(-5px); /* Легкий эффект "поднятия" */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличенная тень */
+}
+
+.planCard.highlighted {
+  box-shadow: 0 4px 15px rgba(255, 223, 0, 0.8); /* Яркая тень */
+  border: 2px solid #ffdf00; /* Желтая граница */
+}
+
+.planCard h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.planCard .price {
+  font-size: 24px;
+  color: #00aaff; /* Выделение цветом */
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.planCard .description {
+  font-size: 14px;
+  color: #777;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: center; /* Кнопки по центру */
+  align-items: center; /* Вертикальное выравнивание */
+  gap: 10px; /* Расстояние между кнопками */
+  margin-top: 15px;
+}
+
+.cardActions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnEdit {
+  background-color: #29a3a3;
+  color: #fff;
+}
+
+.btnEdit:hover {
+  background-color: #248f8f; /* Слегка затемненный цвет */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.btnDelete {
+  background-color: transparent;
+  border: 2px solid #ff4444; /* Красная граница */
+  color: #ff4444;
+}
+
+.btnDelete:hover {
+  background-color: rgba(255, 68, 68, 0.1); /* Полупрозрачный фон */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.addPlan {
+  margin-top: 30px;
+  text-align: center; /* Кнопка добавления плана по центру */
+}
+
+.btnAdd {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnAdd:hover {
+  background-color: #0056b3; /* Темно-синий цвет при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .planCards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Уменьшение минимальной ширины */
+  }
+
+  .planCard {
+    max-width: 150px; /* Уменьшение максимальной ширины карточки */
+  }
+}
+frontend/src/components/ui/PackagePlans/index.ts:
+export { default } from './PackagePlans';
+frontend/src/components/ui/Plans/Plans.tsx:
+import React from 'react';
+
+interface Plan {
+  name: string;
+  price: string;
+  description: string;
+}
+
+interface PlansProps {
+  plans: Plan[];
+}
+
+const Plans: React.FC<PlansProps> = ({ plans }) => {
+  return (
+    <section className="package-plans">
+      <h2>Meal Plans</h2>
+      <p>Choose the perfect plan that fits your lifestyle and taste buds!</p>
+      <div className="plan-cards">
+        {plans.map(plan => (
+          <div className="plan-card" key={plan.name}>
+            <h3>{plan.name}</h3>
+            <p>{plan.price}</p>
+            <span>{plan.description}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Plans;
+frontend/src/components/ui/Rating/Rating.tsx - пустой файл
+frontend/src/components/ui/Rating/Rating.module.css - пустой
+frontend/src/components/ui/Rating/index.ts - пустой файл
+frontend/src/components/ui/Statistics/index.ts:
+export { default } from './Statistics';
+frontend/src/components/ui/Statistics/Statistics.tsx:
+import React from 'react';
+import styles from './Statistics.module.css';
+import { stats } from '../../../data/stats.ts'; // Импортируем данные
+
+const Statistics: React.FC = () => {
+  return (
+    <section className={styles.statistics}>
+      <div className={styles.container}>
+        {stats.map((stat) => (
+          <div className={styles.statItem} key={stat.alt}>
+            <img src={stat.icon} alt={stat.alt} className={styles.statIcon} />
+            <div>
+              <span className={styles.statNumber}>{stat.number}</span>
+              <p className={styles.statDescription}>{stat.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Statistics;
+frontend/src/components/ui/Statistics/Statistics.module.css:
+/* Общие стили */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос элементов */
+  gap: 20px; /* Расстояние между элементами */
+  justify-content: space-around; /* Равномерное распределение */
+}
+
+/* Секция Statistics */
+.statistics {
+  background: linear-gradient(180deg, #e0f7fa, #f8f9fa);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column; /* Элементы в столбик */
+  align-items: center; /* Центрируем содержимое */
+  text-align: center;
+  width: 100%; /* Для маленьких экранов */
+  max-width: 150px; /* Ограничение ширины */
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain; /* Корректное масштабирование изображений */
+  margin-bottom: 10px; /* Отступ между иконкой и текстом */
+}
+
+.stat-number {
+  font-size: 24px;
+  color: #00aaff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stat-description {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .stat-item {
+    max-width: 120px; /* Уменьшаем максимальную ширину для планшетов */
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .stat-number {
+    font-size: 20px; /* Уменьшаем размер текста */
+  }
+
+  .stat-description {
+    font-size: 14px; /* Уменьшаем размер описания */
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-item {
+    max-width: 100%; /* Занимаем всю ширину на маленьких экранах */
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-number {
+    font-size: 18px; /* Еще меньше текст */
+  }
+
+  .stat-description {
+    font-size: 12px; /* Еще меньше описание */
+  }
+}
+frontend/src/components/ui/Statistics/types.ts:
+// Интерфейс для одного элемента статистики
+export interface Statistic {
+    icon: string; // Путь к иконке
+    alt: string; // Текст для атрибута alt
+    number: string; // Числовое значение (например, "50k+")
+    description: string; // Описание (например, "Meals Delivered")
+  }
+  
+  // Интерфейс для пропсов компонента
+  export interface StatisticsProps {
+    statistics?: Statistic[]; // Массив данных для отображения статистики
+  }
+frontend/src/context/AuthContext.tsx - пустой файл
+frontend/src/data/stats.ts:
+export const stats = [
+    {
+      icon: '/images/icon-engagements.png',
+      alt: 'Meals Delivered',
+      number: '50k+',
+      description: 'Meals Delivered',
+    },
+    {
+      icon: '/images/icon-clients.png',
+      alt: 'Happy Customers',
+      number: '10k+',
+      description: 'Happy Customers',
+    },
+    {
+      icon: '/images/icon-return-clients.png',
+      alt: 'Repeat Orders',
+      number: '8k+',
+      description: 'Repeat Orders',
+    },
+    {
+      icon: '/images/icon-reviews.png',
+      alt: 'Positive Reviews',
+      number: '5k+',
+      description: 'Positive Reviews',
+    },
+  ];
+frontend/src/hooks/useApi.ts:
+import axios from 'axios';
+
+const useApi = () => {
+  const apiClient = axios.create({
+    baseURL: 'https://api.example.com',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const fetchDishes = async () => {
+    const response = await apiClient.get('/dishes');
+    return response.data;
+  };
+
+  return { fetchDishes };
+};
+
+export default useApi;
+frontend/src/hooks/useApiDispatch.ts:
+import { useDispatch } from 'react-redux';
+import type { AppDispatch } from '../store';
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+frontend/src/hooks/useApiSelector.ts:
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import type { RootState } from '../store';
+
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+frontend/src/hooks/useAuth.ts - пустой файл
+frontend/src/services/api.ts - пустой файл
+frontend/src/srore/slices/authSlice.ts:
+ import { createSlice } from '@reduxjs/toolkit';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface AuthState {
+  isAuthenticated: boolean;
+  user: User | null; // Указываем конкретный тип вместо any
+}
+
+const initialState: AuthState = {
+  isAuthenticated: false,
+  user: null,
+};
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    login: (state, action) => {
+      state.isAuthenticated = true;
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.isAuthenticated = false;
+      state.user = null;
+    },
+  },
+});
+
+export const { login, logout } = authSlice.actions;
+
+export default authSlice.reducer;
+frontend/src/srore/slices/cartSlice.ts:
+import { createSlice } from '@reduxjs/toolkit';
+
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+}
+
+interface CartState {
+  items: CartItem[];
+}
+
+const initialState: CartState = {
+  items: [],
+};
+
+const cartSlice = createSlice({
+  name: 'cart',
+  initialState,
+  reducers: {
+    addItem: (state, action) => {
+      state.items.push(action.payload);
+    },
+    removeItem: (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
+  },
+});
+
+export const { addItem, removeItem } = cartSlice.actions;
+
+export default cartSlice.reducer; // Обязательно добавьте default export
+frontend/src/srore/slices/dishesSlice.ts:
+import { createSlice } from '@reduxjs/toolkit';
+
+interface Dish {
+  id: string;
+  name: string;
+  price: number;
+}
+
+interface DishesState {
+  dishes: Dish[];
+}
+
+const initialState: DishesState = {
+  dishes: [],
+};
+
+const dishesSlice = createSlice({
+  name: 'dishes',
+  initialState,
+  reducers: {
+    setDishes: (state, action) => {
+      state.dishes = action.payload;
+    },
+  },
+});
+
+export const { setDishes } = dishesSlice.actions;
+
+export default dishesSlice.reducer; // Обязательно добавьте default export
+frontend/src/srore/index.ts:
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './slices/authSlice';
+import cartReducer from './slices/cartSlice';
+import dishesReducer from './slices/dishesSlice';
+
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    cart: cartReducer,
+    dishes: dishesReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export default store;
+frontend/src/srore/store.ts:
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './slices/authSlice';
+import cartReducer from './slices/cartSlice';
+import dishesReducer from './slices/dishesSlice';
+
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    cart: cartReducer,
+    dishes: dishesReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export default store;
+frontend/src/App.css - пустой файл
+frontend/src/App.tsx:
+import React from 'react';
+import Header from './components/layout/Header';
+import HeroSection from './components/ui/HeroSection';
+import Statistics from './components/ui/Statistics';
+import PackagePlans from './components/ui/PackagePlans';
+import Footer from './components/layout/Footer';
+
+const App: React.FC = () => {
+  return (
+    <>
+      <Header />
+      <HeroSection />
+      <Statistics />
+      <PackagePlans />
+      <Footer />
+    </>
+  );
+};
+
+export default App;
+frontend/src/index.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+frontend/src/main.tsx:
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+// Создаем корневой элемент React
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+
+// Рендерим приложение
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+frontend/src/routes.tsx:
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/layout/Header/Header';
+import Footer from './components/layout/Footer/Footer';
+import HeroSection from './components/ui/HeroSection/HeroSection';
+import Plans from './components/ui/Plans/Plans';
+import Statistics from './components/ui/Statistics/Statistics';
+
+const placeholderPlans = [
+  { name: 'Basic Plan', price: '$10', description: 'A basic meal plan.' },
+  { name: 'Premium Plan', price: '$20', description: 'A premium meal plan.' },
+];
+
+const placeholderStatistics = [
+  { icon: '/images/icon-clients.png', alt: 'Stat 1', number: '100', description: 'Meals Delivered' },
+  { icon: '/images/icon-engagements.png', alt: 'Stat 2', number: '50', description: 'Happy Customers' },
+];
+
+const AppRoutes: React.FC = () => {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HeroSection />} />
+        <Route path="/plans" element={<Plans plans={placeholderPlans} />} />
+        <Route path="/statistics" element={<Statistics statistics={placeholderStatistics} />} />
+        {/* Add more routes as needed */}
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
+
+export default AppRoutes;
+frontend/index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Kitchen Marketplace</title>
+  <link rel="stylesheet" href="src/assets/styles/global.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

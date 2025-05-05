@@ -1,14 +1,86 @@
-.home {
-    text-align: center;
-    padding: 2rem;
-  }
-  
-  .home h1 {
-    font-size: 2.5rem;
-    color: #007bff;
-  }
-  
-  .home p {
-    font-size: 1.2rem;
-    color: #555;
-  }
+/* Home Page Main Section */
+.homeHero {
+  background: linear-gradient(180deg, #f0fbff, #e0f7fa);
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Container override for home */
+.homeContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Content */
+.homeContent {
+  flex: 1;
+  max-width: 500px;
+}
+
+.homeTitle {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.homeHighlight {
+  color: #00aaff;
+  font-weight: bold;
+}
+
+.homeDescription {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.homeButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.homeBtnPrimary,
+.homeBtnSecondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.homeBtnPrimary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.homeBtnPrimary:hover {
+  background-color: #0051ff;
+  transform: scale(1.05);
+}
+
+.homeBtnSecondary {
+  background-color: transparent;
+  color: #00aaff;
+  border: 2px solid #00aaff;
+}
+
+.homeBtnSecondary:hover {
+  background-color: rgba(68, 118, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* Image */
+.homeImage {
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  margin-left: 40px;
+}
