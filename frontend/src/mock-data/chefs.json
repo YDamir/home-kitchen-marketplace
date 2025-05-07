@@ -1,32 +1,102 @@
 [
   {
-    "id": 1,
-    "name": "Анна Иванова",
-    "city": "Москва",
-    "experience": 5,
-    "specialties": ["Супы", "Салаты"],
-    "rating": 4.8,
-    "imageUrl": "/assets/images/chef-anna.jpg",
-    "popularity": 10
+  "id": 1,
+  "name": "Анна Иванова",
+  "city": "Москва",
+  "experience": 5,
+  "specialties": ["Супы", "Салаты"],
+  "rating": 4.8,
+  "imageUrl": "/assets/images/chef-anna.jpg",
+  "popularity": 10
   },
   {
-    "id": 2,
-    "name": "Петр Смирнов",
-    "city": "Санкт-Петербург",
-    "experience": 7,
-    "specialties": ["Горячее", "Мангал"],
-    "rating": 4.6,
-    "imageUrl": "/assets/images/chef-petr.jpg",
-    "popularity": 8
+  "id": 2,
+  "name": "Петр Смирнов",
+  "city": "Санкт-Петербург",
+  "experience": 7,
+  "specialties": ["Горячее", "Мангал"],
+  "rating": 4.6,
+  "imageUrl": "/assets/images/chef-petr.jpg",
+  "popularity": 8
   },
   {
-    "id": 3,
-    "name": "Елена Кузнецова",
-    "city": "Казань",
-    "experience": 3,
-    "specialties": ["Десерты", "Выпечка"],
-    "rating": 4.9,
-    "imageUrl": "/assets/images/chef-elena.jpg",
-    "popularity": 9
+  "id": 3,
+  "name": "Елена Кузнецова",
+  "city": "Казань",
+  "experience": 3,
+  "specialties": ["Десерты", "Выпечка"],
+  "rating": 4.9,
+  "imageUrl": "/assets/images/chef-elena.jpg",
+  "popularity": 9
+  },
+  {
+  "id": 4,
+  "name": "Игорь Лебедев",
+  "city": "Новосибирск",
+  "experience": 10,
+  "specialties": ["Русская кухня", "Гриль"],
+  "rating": 4.7,
+  "imageUrl": "/assets/images/chef-igor.jpg",
+  "popularity": 12
+  },
+  {
+  "id": 5,
+  "name": "Мария Петрова",
+  "city": "Екатеринбург",
+  "experience": 6,
+  "specialties": ["Итальянская кухня", "Паста"],
+  "rating": 4.5,
+  "imageUrl": "/assets/images/chef-maria.jpg",
+  "popularity": 7
+  },
+  {
+  "id": 6,
+  "name": "Алексей Смирнов",
+  "city": "Казань",
+  "experience": 8,
+  "specialties": ["Азиатская кухня", "Суши"],
+  "rating": 4.8,
+  "imageUrl": "/assets/images/chef-alexey.jpg",
+  "popularity": 11
+  },
+  {
+  "id": 7,
+  "name": "Ольга Васильева",
+  "city": "Москва",
+  "experience": 4,
+  "specialties": ["Вегетарианская кухня", "Салаты"],
+  "rating": 4.6,
+  "imageUrl": "/assets/images/chef-olga.jpg",
+  "popularity": 9
+  },
+  {
+  "id": 8,
+  "name": "Дмитрий Козлов",
+  "city": "Санкт-Петербург",
+  "experience": 9,
+  "specialties": ["Морепродукты", "Гриль"],
+  "rating": 4.9,
+  "imageUrl": "/assets/images/chef-dmitry.jpg",
+  "popularity": 13
+  },
+  {
+  "id": 9,
+  "name": "Наталья Федорова",
+  "city": "Новосибирск",
+  "experience": 7,
+  "specialties": ["Десерты", "Выпечка"],
+  "rating": 4.7,
+  "imageUrl": "/assets/images/chef-natalia.jpg",
+  "popularity": 10
+  },
+  {
+  "id": 10,
+  "name": "Сергей Иванов",
+  "city": "Екатеринбург",
+  "experience": 5,
+  "specialties": ["Русская кухня", "Супы"],
+  "rating": 4.5,
+  "imageUrl": "/assets/images/chef-sergey.jpg",
+  "popularity": 8
   }
-]
+  ]

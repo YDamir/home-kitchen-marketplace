@@ -1,4 +1,3 @@
-// types/dishes.ts
 export interface Dish {
   id: string;
   name: string;
@@ -10,4 +9,8 @@ export interface Dish {
   image: string;
   chefId: string;
   popularity: number;
+  dietaryPreferences?: string[];
+  deliveryTime?: number;
+  chefRating?: number;
+  ingredients?: string[];
 }

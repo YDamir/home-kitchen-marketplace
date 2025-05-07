@@ -7,6 +7,7 @@ export interface Chef {
   experience: number;
   specialties: string[];
   rating: number;
+  availability?: boolean;
   imageUrl: string;
   avatarUrl?: string;        // если это поле необязательное
   specialty?: string;        // если это поле необязательное
