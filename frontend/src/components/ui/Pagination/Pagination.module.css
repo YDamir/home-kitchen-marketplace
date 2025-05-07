@@ -1,24 +1,24 @@
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 40px;
   flex-wrap: wrap;
 }
 
 button {
   padding: 10px 16px;
   font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #007bff;
+  border-radius: 8px;
+  border: 1px solid #29a3a3;
   background-color: #ffffff;
-  color: #007bff;
+  color: #29a3a3;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 button:hover:not(:disabled) {
-  background-color: #007bff;
+  background-color: #29a3a3;
   color: #ffffff;
 }
 
@@ -28,8 +28,8 @@ button:disabled {
 }
 
 .active {
-  background-color: #007bff;
+  background-color: #29a3a3;
   color: #ffffff;
-  border-color: #007bff;
+  border-color: #29a3a3;
   font-weight: bold;
 }

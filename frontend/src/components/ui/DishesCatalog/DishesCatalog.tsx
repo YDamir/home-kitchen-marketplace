@@ -93,8 +93,6 @@ const DishesCatalog: React.FC = () => {
 
   return (
     <div className={styles.catalogSection}>
-      <h2 className={styles.heading}>Меню</h2>
-  
       <FilterPanel
         filters={[
           {

@@ -1,0 +1,41 @@
+.details {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #e0f7fa, #f8f9fa);
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .infoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+  }
+  
+  .infoItem {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .infoItem h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .infoItem p {
+    font-size: 16px;
+    color: #555;
+  }
+  

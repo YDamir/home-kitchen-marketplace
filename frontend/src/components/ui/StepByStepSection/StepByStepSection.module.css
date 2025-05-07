@@ -1,0 +1,44 @@
+/* src/components/pages/HowItWorks/StepByStepSection/StepByStepSection.module.css */
+.section {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+    padding: 60px 20px;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .step {
+    margin-bottom: 32px;
+    padding-left: 10px;
+    border-left: 4px solid #f39c12;
+  }
+  
+  .step h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #f39c12;
+  }
+  
+  .step p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+  }
+  

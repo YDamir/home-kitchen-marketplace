@@ -1,50 +1,42 @@
-/* SortSelect.module.css */
-
 .sort-select {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-    padding: 12px 16px;
-    background: #fefefe;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.sort-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.sort-dropdown {
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.sort-dropdown:focus,
+.sort-dropdown:hover {
+  border-color: #29a3a3;
+}
+
+@media (max-width: 768px) {
+  .sort-select {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .sort-label {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-  }
-  
+
   .sort-dropdown {
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    transition: border-color 0.2s ease;
+    width: 100%;
   }
-  
-  .sort-dropdown:focus {
-    border-color: #29a3a3; /* Цвет рамки при фокусе */
-  }
-  
-  .sort-dropdown:hover {
-    border-color: #248f8f; /* Цвет рамки при наведении */
-  }
-  
-  @media (max-width: 768px) {
-    .sort-select {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .sort-dropdown {
-      width: 100%; /* Полная ширина на мобильных устройствах */
-    }
-  }
-  
+}
